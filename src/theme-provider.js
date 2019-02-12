@@ -14,7 +14,6 @@ const applyClasses = (theme, styles, className) => classes => {
         // Second style layer (styles from PROPS)
         ...styles,
     };
-    console.log({ styles });
 
     return cssm(
         stylesMerged,

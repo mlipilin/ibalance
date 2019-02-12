@@ -21,6 +21,7 @@ class Button extends Component {
                         type,
                     }),
                 )}
+                disabled={disabled}
             >
                 {this.props.children}
             </button>
