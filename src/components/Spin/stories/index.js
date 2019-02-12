@@ -7,8 +7,6 @@ import Spin from '../index';
 import './styles.css';
 
 const TYPES = [
-    'black',
-    'white',
     'default',
     'primary',
     'secondary',
@@ -16,6 +14,8 @@ const TYPES = [
     'success',
     'info',
     'warning',
+    'black',
+    'white',
 ];
 const SIZES = ['xs', 's', 'm', 'l', 'xl', 'xxl'];
 

@@ -6,14 +6,15 @@ import cssm from './utils/cssm';
 const MyContext = React.createContext(null);
 const ThemeProvider = MyContext.Provider;
 
-const applyClasses = (componentStyles, themeStyles, className) => classes => {
+const applyClasses = (theme, styles, className) => classes => {
     const stylesMerged = {
-        // First style layer (default component styles)
-        ...componentStyles,
+        // First style layer (styles from THEME)
+        ...theme,
 
-        // Second style layer (styles from provider, DI)
-        ...themeStyles,
+        // Second style layer (styles from PROPS)
+        ...styles,
     };
+    console.log({ styles });
 
     return cssm(
         stylesMerged,
@@ -24,15 +25,15 @@ const applyClasses = (componentStyles, themeStyles, className) => classes => {
     );
 };
 
-export const useTheme = (Component, componentStyles = {}) => ({ className, ...otherProps }) => (
+export const useTheme = Component => ({ className, styles, ...otherProps }) => (
     <MyContext.Consumer>
         {value => {
-            const themeStyles = value ? value.styles : {};
+            const theme = value || {};
             return (
                 <Component
                     {...otherProps}
                     className={className}
-                    applyClasses={applyClasses(componentStyles, themeStyles, className)}
+                    applyClasses={applyClasses(theme, styles, className)}
                 />
             );
         }}

@@ -4,8 +4,6 @@ import bem from 'bem-classnames-maker';
 
 import { useTheme } from '../../theme-provider';
 
-import styles from './styles.less';
-
 const cx = bem('ib-spin');
 
 class Spin extends Component {
@@ -18,8 +16,6 @@ class Spin extends Component {
 Spin.propTypes = {
     size: PropTypes.oneOf(['xs', 's', 'm', 'l', 'xl', 'xxl']),
     type: PropTypes.oneOf([
-        'black',
-        'white',
         'default',
         'primary',
         'secondary',
@@ -27,6 +23,8 @@ Spin.propTypes = {
         'success',
         'info',
         'warning',
+        'black',
+        'white',
     ]),
     applyClasses: PropTypes.func,
 };
@@ -37,4 +35,4 @@ Spin.defaultProps = {
     applyClasses: _ => _,
 };
 
-export default useTheme(Spin, styles);
+export default useTheme(Spin);

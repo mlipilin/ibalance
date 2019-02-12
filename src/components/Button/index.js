@@ -4,8 +4,6 @@ import bem from 'bem-classnames-maker';
 
 import { useTheme } from '../../theme-provider';
 
-import styles from './styles.less';
-
 const cx = bem('ib-button');
 
 class Button extends Component {
@@ -35,7 +33,6 @@ Button.propTypes = {
     disabled: PropTypes.bool,
     processing: PropTypes.bool,
     size: PropTypes.oneOf(['xs', 's', 'm', 'l', 'xl', 'xxl']),
-    styles: PropTypes.object,
     type: PropTypes.oneOf([
         'default',
         'primary',
@@ -53,9 +50,8 @@ Button.defaultProps = {
     disabled: false,
     processing: false,
     size: 'm',
-    styles: {},
     type: 'default',
     applyClasses: _ => _,
 };
 
-export default useTheme(Button, styles);
+export default useTheme(Button);
