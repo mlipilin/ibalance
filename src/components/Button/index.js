@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem-classnames-maker';
 
+// Components
+import Spin from '../Spin';
+
 import { useTheme } from '../../theme-provider';
 
 const cx = bem('ib-button');
@@ -10,20 +13,37 @@ class Button extends Component {
     render() {
         const { block, disabled, processing, size, type, applyClasses } = this.props;
 
+        const buttonClass = applyClasses(
+            cx('', {
+                block,
+                disabled,
+                processing,
+                size,
+                type,
+            }),
+        );
+
+        const contentClass = applyClasses(cx('content', {}));
+        const iconLeftClass = applyClasses(cx('icon-left', {}));
+        const iconRightClass = applyClasses(cx('icon-right', {}));
+        const spinClass = applyClasses(cx('spin', {}));
+
+        let buttonProps = { disabled };
+        if (processing) {
+            buttonProps.processing = 'processing';
+        }
+
         return (
-            <button
-                className={applyClasses(
-                    cx('', {
-                        block,
-                        disabled,
-                        processing,
-                        size,
-                        type,
-                    }),
+            <button className={buttonClass} {...buttonProps}>
+                {/* Content */}
+                <div className={contentClass}>{this.props.children}</div>
+
+                {/* Spin */}
+                {processing && (
+                    <div className={spinClass}>
+                        <Spin size={size} />
+                    </div>
                 )}
-                disabled={disabled}
-            >
-                {this.props.children}
             </button>
         );
     }

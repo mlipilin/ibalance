@@ -1,24 +1,35 @@
 .button-background(@color, @percent: 10%) {
     background-color: @color;
-    &:not([disabled]):hover {
+    &:not([disabled]):not([processing]):hover {
         background-color: darken(@color, @percent);
     }
-    &:not([disabled]):focus {
+    &:not([disabled]):not([processing]):focus {
         background-color: lighten(@color, @percent);
     }
-    &:not([disabled]):active {
+    &:not([disabled]):not([processing]):active {
         background-color: lighten(@color, @percent);
     }
 }
+
 .button-border(@color, @percent: 10%) {
     border-color: @color;
-    &:not([disabled]):hover {
+    &:not([disabled]):not([processing]):hover {
         border-color: darken(@color, @percent);
     }
-    &:not([disabled]):focus {
+    &:not([disabled]):not([processing]):focus {
         border-color: lighten(@color, @percent);
     }
-    &:not([disabled]):active {
+    &:not([disabled]):not([processing]):active {
         border-color: lighten(@color, @percent);
+    }
+}
+
+.button-box-shadow(@box-shadow-color: transparent) {
+    &:not([disabled]):not([processing]):hover {
+        box-shadow: none;
+    }
+    &:not([disabled]):not([processing]):focus {
+        box-shadow: 0 0 10px @box-shadow-color;
+        outline: none;
     }
 }
