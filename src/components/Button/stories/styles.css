@@ -3,8 +3,10 @@
 }
 
 .Story__Button-Container > div {
+    display: flex;
     margin-bottom: 10px;
 }
 .Story__Button-Container > div > * {
+    margin-right: 5px;
     text-transform: capitalize;
 }

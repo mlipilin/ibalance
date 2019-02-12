@@ -1,3 +1,6 @@
-.ib-icon {
+.Story__Icon-Container {
+
+}
+.Story__Icon-Container > span {
     padding: 5px;
 }

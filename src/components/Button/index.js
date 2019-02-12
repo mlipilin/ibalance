@@ -11,7 +11,16 @@ const cx = bem('ib-button');
 
 class Button extends Component {
     render() {
-        const { block, disabled, processing, size, type, applyClasses } = this.props;
+        const {
+            block,
+            disabled,
+            iconLeft,
+            iconRight,
+            processing,
+            size,
+            type,
+            applyClasses,
+        } = this.props;
 
         const buttonClass = applyClasses(
             cx('', {
@@ -22,7 +31,11 @@ class Button extends Component {
                 type,
             }),
         );
-
+        const containerClass = applyClasses(
+            cx('container', {
+                'no-icons': !iconLeft && !iconRight,
+            }),
+        );
         const contentClass = applyClasses(cx('content', {}));
         const iconLeftClass = applyClasses(cx('icon-left', {}));
         const iconRightClass = applyClasses(cx('icon-right', {}));
@@ -35,15 +48,23 @@ class Button extends Component {
 
         return (
             <button className={buttonClass} {...buttonProps}>
-                {/* Content */}
-                <div className={contentClass}>{this.props.children}</div>
+                <div className={containerClass}>
+                    {/* Icon left */}
+                    {!!iconLeft && <div className={iconLeftClass}>{iconLeft}</div>}
 
-                {/* Spin */}
-                {processing && (
-                    <div className={spinClass}>
-                        <Spin size={size} />
-                    </div>
-                )}
+                    {/* Content */}
+                    <div className={contentClass}>{this.props.children}</div>
+
+                    {/* Icon right */}
+                    {!!iconRight && <div className={iconRightClass}>{iconRight}</div>}
+
+                    {/* Spin */}
+                    {processing && (
+                        <div className={spinClass}>
+                            <Spin size={size} />
+                        </div>
+                    )}
+                </div>
             </button>
         );
     }
@@ -52,6 +73,8 @@ class Button extends Component {
 Button.propTypes = {
     block: PropTypes.bool,
     disabled: PropTypes.bool,
+    iconLeft: PropTypes.object,
+    iconRight: PropTypes.object,
     processing: PropTypes.bool,
     size: PropTypes.oneOf(['xs', 's', 'm', 'l', 'xl', 'xxl']),
     type: PropTypes.oneOf([

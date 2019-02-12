@@ -12,21 +12,26 @@ class Icon extends Component {
         const { color, name, size, applyClasses, ...otherProps } = this.props;
 
         if (!name) return null;
+        if (!icons[name]) return null;
 
-        return icons[name] ? (
+        let svgProps = {};
+        if (color) {
+            svgProps.color = color;
+        }
+        if (size) {
+            svgProps.height = size;
+            svgProps.width = size;
+        }
+
+        return (
             <span
+                {...otherProps}
                 className={applyClasses(cx(''))}
                 dangerouslySetInnerHTML={{
-                    __html: icons[name].toSvg({
-                        class: cx(),
-                        color,
-                        height: size,
-                        width: size,
-                    }),
+                    __html: icons[name].toSvg(svgProps),
                 }}
-                {...otherProps}
             />
-        ) : null;
+        );
     }
 }
 
