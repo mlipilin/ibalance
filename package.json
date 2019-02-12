@@ -4,6 +4,7 @@
   "description": "Basic react components set for fast creating apps",
   "main": "index.js",
   "scripts": {
+    "deploy-storybook": "storybook-to-ghpages --out=.out",
     "storybook": "start-storybook -p 9001 -c .storybook"
   },
   "repository": {
@@ -21,6 +22,7 @@
     "@storybook/addon-knobs": "^4.1.11",
     "@storybook/addon-options": "^4.1.11",
     "@storybook/react": "^4.1.11",
+    "@storybook/storybook-deployer": "^2.8.1",
     "babel-loader": "^8.0.5",
     "less": "^3.9.0",
     "less-loader": "^4.1.0"
