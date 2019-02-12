@@ -1,0 +1,34 @@
+.button-background(@color, @percent: 10%) {
+    background-color: @color;
+    &:hover {
+        background-color: darken(@color, @percent);
+    }
+    &:focus {
+        background-color: lighten(@color, @percent);
+    }
+    &:active {
+        background-color: lighten(@color, @percent);
+    }
+}
+.button-border(@color, @percent: 10%) {
+    border-color: @color;
+    &:hover {
+        border-color: darken(@color, @percent);
+    }
+    &:focus {
+        border-color: lighten(@color, @percent);
+    }
+    &:active {
+        border-color: lighten(@color, @percent);
+    }
+}
+
+
+.no-outline {
+    outline: none;
+    &:hover,
+    &:focus,
+    &:active {
+        outline: none;
+    }
+}

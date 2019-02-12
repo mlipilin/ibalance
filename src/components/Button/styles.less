@@ -1,0 +1,125 @@
+@import '../../styles/index';
+
+.ib-button {
+    border: 1px solid transparent;
+    border-radius: 4px;
+    box-shadow: none;
+    box-sizing: border-box;
+    cursor: pointer;
+    position: relative;
+    transition: border-color .2s ease-in-out, background-color .2s ease-in-out, color .2s ease-in-out, box-shadow .2s ease-in-out;
+
+    &:hover {
+        box-shadow: none;
+    }
+    &:focus {
+        box-shadow: 0 0 10px @color-gray-500;
+        outline: none;
+    }
+
+
+    // Type
+    &_type_default {
+        .button-background(@color-default, 5%);
+        .button-border(@color-default, 5%);
+        background-color: @color-white;
+        color: @color-text-primary;
+    }
+    
+    &_type_primary {
+        .button-background(@color-primary);
+        .button-border(@color-primary);
+        color: @color-white;
+    }
+    
+    &_type_secondary {
+        .button-background(@color-primary);
+        .button-border(@color-primary);
+        background-color: @color-white;
+        color: @color-primary;
+        &:hover {
+            color: @color-white;
+        }
+        &:focus,
+        &:active {
+            color: @color-white;
+        }
+    }
+    
+    &_type_danger {
+        .button-background(@color-danger);
+        .button-border(@color-danger);
+        color: @color-white;
+    }
+    
+    &_type_success {
+        .button-background(@color-success);
+        .button-border(@color-success);
+        color: @color-white;
+    }
+    
+    &_type_info {
+        .button-background(@color-info);
+        .button-border(@color-info);
+        color: @color-white;
+    }
+    
+    &_type_warning {
+        .button-background(@color-warning);
+        .button-border(@color-warning);
+        color: @color-white;
+    }
+
+
+    // Size
+    &_size_xs {
+        font-size: @font-size-xs;
+        padding: 4px 8px;
+    }
+    &_size_s {
+        font-size: @font-size-s;
+        padding: 8px 12px;
+    }
+    &_size_m {
+        font-size: @font-size-m;
+        padding: 12px 16px;
+    }
+    &_size_l {
+        font-size: @font-size-l;
+        padding: 16px 24px;
+    }
+    &_size_xl {
+        font-size: @font-size-xl;
+        padding: 20px 28px;
+    }
+    &_size_xxl {
+        font-size: @font-size-xxl;
+        padding: 24px 32px;
+    }
+
+
+    // Disabled
+    &_disabled {
+        cursor: default;
+        opacity: 0.2;
+        &:hover {
+            box-shadow: none;
+            filter: none;
+        }
+        &:focus {
+            filter: none;
+        }
+    }
+
+
+    // Block
+    &_block {
+        display: block;
+        width: 100%;
+    }
+
+
+    // Processing
+    &_processing {
+    }
+}

@@ -1,0 +1,10 @@
+.Story__Button-Container {
+
+}
+
+.Story__Button-Container > div {
+    margin-bottom: 10px;
+}
+.Story__Button-Container > div > * {
+    text-transform: capitalize;
+}
