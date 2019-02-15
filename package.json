@@ -11,7 +11,7 @@
         "storybook": "start-storybook -p 9001 -c .storybook",
         "test": "jest",
         "test-watch": "jest --watch",
-        "semantic-release": "semantic-release"
+        "semantic-release": "npm run build && semantic-release && rm -rf dist"
     },
     "repository": {
         "type": "git",
