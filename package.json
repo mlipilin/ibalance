@@ -2,8 +2,11 @@
     "name": "ibalance",
     "version": "0.0.1",
     "description": "Basic react components set for fast creating apps",
-    "main": "index.js",
+    "main": "dist/index.cjs.js",
+    "module": "dist/index.esm.js",
+    "browser": "dist/index.umd.js",
     "scripts": {
+        "build": "rollup -c",
         "deploy-storybook": "storybook-to-ghpages --out=.out",
         "storybook": "start-storybook -p 9001 -c .storybook",
         "test": "jest",
@@ -22,6 +25,7 @@
     "devDependencies": {
         "@babel/core": "^7.2.2",
         "@babel/preset-env": "^7.3.1",
+        "@babel/preset-react": "^7.0.0",
         "@storybook/addon-knobs": "^4.1.11",
         "@storybook/addon-options": "^4.1.11",
         "@storybook/react": "^4.1.11",
@@ -33,7 +37,12 @@
         "less": "^3.9.0",
         "less-loader": "^4.1.0",
         "prettier": "^1.16.4",
-        "pretty-quick": "^1.10.0"
+        "pretty-quick": "^1.10.0",
+        "rollup": "^1.1.2",
+        "rollup-plugin-alias": "^1.5.1",
+        "rollup-plugin-babel": "^4.3.2",
+        "rollup-plugin-commonjs": "^9.2.0",
+        "rollup-plugin-node-resolve": "^4.0.0"
     },
     "dependencies": {
         "bem-classnames-maker": "^1.1.3",
