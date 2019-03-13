@@ -1,0 +1,12 @@
+.Story__Input-Container {
+}
+.Story__Input-Container > div {
+    display: flex;
+    margin-bottom: 10px;
+}
+.Story__Input-Container > div > * {
+    margin-right: 5px;
+}
+.Story__Input-Container input {
+    text-transform: capitalize;
+}
