@@ -1,6 +1,7 @@
 import resolve from 'rollup-plugin-node-resolve';
 import babel from 'rollup-plugin-babel';
 import commonjs from 'rollup-plugin-commonjs';
+import less from 'rollup-plugin-less';
 
 import pkg from './package.json';
 
@@ -12,6 +13,9 @@ const plugins = [
         exclude: 'node_modules/**',
     }),
     commonjs(),
+    less({
+        output: 'dist/styles.css',
+    }),
 ];
 
 export default [
