@@ -1,0 +1,107 @@
+@import '../../mixins.less';
+
+.ib-checkbox {
+    input[type='checkbox'] {
+        display: none;
+    }
+}
+
+.ib-checkbox__label {
+    @size-s: 18px;
+    @size-m: 22px;
+    @size-l: 26px;
+
+    cursor: pointer;
+    display: inline-block;
+    padding-top: 1px;
+    position: relative;
+
+    &:before {
+        .size(@size-m);
+        border: 2px solid @color-default;
+        border-radius: 2px;
+        box-sizing: border-box;
+        content: '';
+        left: 0;
+        position: absolute;
+        top: 0;
+    }
+    &:after {
+        border-bottom: 2px solid @color-white;
+        border-left: 2px solid @color-white;
+        content: '';
+        position: absolute;
+    }
+
+    &:hover:not(&_checked) {
+        &:before {
+            border-color: darken(@color-default, 5%);
+        }
+    }
+
+    // Checked
+    &_checked {
+        &:after {
+            display: block;
+            transform: rotate(-45deg);
+        }
+    }
+
+    // Type
+    &_type_primary&_checked {
+        &:before {
+            background-color: @color-primary;
+            border-color: @color-primary;
+        }
+    }
+    &_type_secondary&_checked {
+        &:before {
+            background-color: @color-danger;
+            border-color: @color-danger;
+        }
+    }
+
+    // Size
+    &_size_s {
+        font-size: @font-size-s;
+        min-height: @size-s;
+        padding-left: @size-s + 8px;
+        &:before {
+            .size(@size-s);
+        }
+        &:after {
+            height: 5px;
+            left: 4px;
+            top: 4px;
+            width: 8px;
+        }
+    }
+    &_size_m {
+        font-size: @font-size-m;
+        min-height: @size-m;
+        padding-left: @size-m + 8px;
+        &:before {
+            .size(@size-m);
+        }
+        &:after {
+            height: 6px;
+            left: 5px;
+            top: 5px;
+            width: 10px;
+        }
+    }
+    &_size_l {
+        font-size: @font-size-l;
+        min-height: @size-l;
+        padding-left: @size-l + 8px;
+        &:before {
+            .size(@size-l);
+        }
+        &:after {
+            height: 7px;
+            left: 6px;
+            top: 6px;
+            width: 12px;
+        }
+    }
+}

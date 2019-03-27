@@ -20,7 +20,7 @@ class Input extends Component {
     };
 
     render() {
-        const { error, size, success, applyClasses, ...otherProps } = this.props;
+        const { error, size, success, value, applyClasses, ...otherProps } = this.props;
 
         const inputClass = applyClasses(cx('', {}));
 
@@ -43,6 +43,7 @@ class Input extends Component {
                 <input
                     {...otherProps}
                     className={inputInputClass}
+                    value={value}
                     onBlur={this.handleBlur}
                     onChange={this.handleChange}
                     onFocus={this.handleFocus}
@@ -58,6 +59,7 @@ Input.propTypes = {
     disabled: PropTypes.bool,
     size: PropTypes.oneOf(['s', 'm', 'l']),
     success: PropTypes.bool,
+    value: PropTypes.string,
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
@@ -67,6 +69,7 @@ Input.defaultProps = {
     disabled: false,
     size: 'm',
     success: false,
+    value: '',
     onBlur: _ => _,
     onChange: _ => _,
     onFocus: _ => _,
