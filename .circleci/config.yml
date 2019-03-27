@@ -1,0 +1,30 @@
+version: 2
+jobs:
+    test:
+        docker:
+            - image: circleci/node:8
+        steps:
+            - checkout
+            - run: npm install
+            - run: npm t
+
+    deploy:
+        docker:
+            - image: circleci/node:8
+        steps:
+            - checkout
+            - run: npm install
+            - run: npm run build
+            - run: npm run deploy-storybook
+
+workflows:
+    version: 2
+    test-deploy:
+        jobs:
+            - test
+            - deploy:
+                  requires:
+                      - test
+                  filters:
+                      branches:
+                          only: master
