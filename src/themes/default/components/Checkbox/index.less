@@ -34,7 +34,7 @@
         position: absolute;
     }
 
-    &:hover:not(&_checked) {
+    &:hover:not(&_checked):not(&_disabled) {
         &:before {
             border-color: darken(@color-default, 5%);
         }
@@ -46,6 +46,12 @@
             display: block;
             transform: rotate(-45deg);
         }
+    }
+
+    // Disabled
+    &_disabled {
+        cursor: default;
+        opacity: 0.5;
     }
 
     // Type

@@ -50,5 +50,17 @@ TYPES.forEach(type => {
         );
     });
 
+    SIZES.forEach(size => {
+        components.push(
+            <div key={`${size}_3`}>
+                <Container>
+                    <Checkbox disabled size={size} type={type}>
+                        {type} checkbox with size {size.toUpperCase()} disabled
+                    </Checkbox>
+                </Container>
+            </div>,
+        );
+    });
+
     stories.add(type, () => <div className="Story__Checkbox-Container">{components}</div>);
 });
