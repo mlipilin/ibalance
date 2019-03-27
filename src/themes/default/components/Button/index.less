@@ -6,11 +6,11 @@
     box-shadow: none;
     cursor: pointer;
     padding: 0;
-    transition: border-color .2s ease-in-out, background-color .2s ease-in-out, color .2s ease-in-out, box-shadow .2s ease-in-out;
+    transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out,
+        color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     &:focus {
         outline: none;
     }
-
 
     // Type
     &_type_default {
@@ -25,7 +25,7 @@
             opacity: 1;
         }
     }
-    
+
     &_type_primary {
         .button-background(@color-primary);
         .button-border(@color-primary);
@@ -36,7 +36,7 @@
             border-top-color: @color-white;
         }
     }
-    
+
     &_type_secondary {
         .button-background(@color-primary);
         .button-border(@color-primary);
@@ -57,7 +57,7 @@
             border-top-color: @color-primary;
         }
     }
-    
+
     &_type_danger {
         .button-background(@color-danger);
         .button-border(@color-danger);
@@ -68,7 +68,7 @@
             border-top-color: @color-white;
         }
     }
-    
+
     &_type_success {
         .button-background(@color-success);
         .button-border(@color-success);
@@ -79,7 +79,7 @@
             border-top-color: @color-white;
         }
     }
-    
+
     &_type_info {
         .button-background(@color-info);
         .button-border(@color-info);
@@ -90,7 +90,7 @@
             border-top-color: @color-white;
         }
     }
-    
+
     &_type_warning {
         .button-background(@color-warning);
         .button-border(@color-warning);
@@ -101,7 +101,6 @@
             border-top-color: @color-white;
         }
     }
-
 
     // Size
     &_size_xs {
@@ -141,13 +140,11 @@
         }
     }
 
-
     // Disabled
     &_disabled {
         cursor: default;
         opacity: 0.2;
     }
-
 
     // Processing
     &_processing {
@@ -159,14 +156,12 @@
         }
     }
 
-
     // Block
     &_block {
         display: block;
         width: 100%;
     }
 }
-
 
 .ib-button__container {
     align-items: center;
@@ -180,11 +175,9 @@
     }
 }
 
-
 .ib-button__content {
     display: inline;
 }
-
 
 .ib-button__icon-left,
 .ib-button__icon-right {
@@ -192,7 +185,6 @@
         display: block;
     }
 }
-
 
 .ib-button__spin {
     align-items: center;
