@@ -1,7 +1,8 @@
 @import './mixins.less';
 
 .ib-switch {
-    display: inline-block;
+    align-items: center;
+    display: inline-flex;
     input[type='checkbox'] {
         display: none;
     }
@@ -65,5 +66,20 @@
     }
     &_size_l {
         .label-size(@size-l);
+    }
+}
+
+.ib-switch__content {
+    &_size_s {
+        font-size: @font-size-s;
+        margin-left: 12px;
+    }
+    &_size_m {
+        font-size: @font-size-m;
+        margin-left: 16px;
+    }
+    &_size_l {
+        font-size: @font-size-l;
+        margin-left: 20px;
     }
 }

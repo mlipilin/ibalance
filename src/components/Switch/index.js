@@ -12,13 +12,15 @@ class Switch extends Component {
     };
 
     render() {
-        const { checked, disabled, size, type, applyClasses, ...otherProps } = this.props;
+        const { checked, children, disabled, size, type, applyClasses, ...otherProps } = this.props;
 
         const switchClass = applyClasses(cx(''));
+        const switchLabelClass = applyClasses(cx('label', { checked, disabled, size, type }));
+        const switchContentClass = applyClasses(cx('content', { size }));
 
         return (
             <div className={switchClass}>
-                <label className={applyClasses(cx('label', { checked, disabled, size, type }))}>
+                <label className={switchLabelClass}>
                     <input
                         {...otherProps}
                         checked={checked}
@@ -27,6 +29,9 @@ class Switch extends Component {
                         onChange={this.handleChange}
                     />
                 </label>
+
+                {/* Content */}
+                {!!children && <div className={switchContentClass}>{children}</div>}
             </div>
         );
     }
