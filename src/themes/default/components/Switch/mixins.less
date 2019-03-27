@@ -1,0 +1,11 @@
+.label-size(@size) {
+    border-radius: @size;
+    height: @size;
+    width: @size * 2;
+
+    &:after {
+        border-radius: @size;
+        height: @size;
+        width: @size;
+    }
+}

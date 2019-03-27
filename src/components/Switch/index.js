@@ -4,22 +4,21 @@ import bem from 'bem-classnames-maker';
 
 import { useTheme } from '../../theme-provider';
 
-const cx = bem('ib-checkbox');
+const cx = bem('ib-switch');
 
-class Checkbox extends Component {
+class Switch extends Component {
     handleChange = e => {
         this.props.onChange(e.target.checked, this.props);
     };
 
     render() {
-        const { checked, children, disabled, size, type, applyClasses, ...otherProps } = this.props;
+        const { checked, disabled, size, type, applyClasses, ...otherProps } = this.props;
 
-        const checkboxClass = applyClasses(cx(''));
-        const checkboxLabelClass = applyClasses(cx('label', { checked, disabled, size, type }));
+        const switchClass = applyClasses(cx(''));
 
         return (
-            <div className={checkboxClass}>
-                <label className={checkboxLabelClass}>
+            <div className={switchClass}>
+                <label className={applyClasses(cx('label', { checked, disabled, size, type }))}>
                     <input
                         {...otherProps}
                         checked={checked}
@@ -27,14 +26,13 @@ class Checkbox extends Component {
                         type="checkbox"
                         onChange={this.handleChange}
                     />
-                    {children}
                 </label>
             </div>
         );
     }
 }
 
-Checkbox.propTypes = {
+Switch.propTypes = {
     checked: PropTypes.bool,
     disabled: PropTypes.bool,
     size: PropTypes.oneOf(['s', 'm', 'l']),
@@ -42,7 +40,7 @@ Checkbox.propTypes = {
     onChange: PropTypes.func,
 };
 
-Checkbox.defaultProps = {
+Switch.defaultProps = {
     checked: false,
     disabled: false,
     size: 'm',
@@ -50,4 +48,4 @@ Checkbox.defaultProps = {
     onChange: _ => _,
 };
 
-export default useTheme(Checkbox);
+export default useTheme(Switch);
