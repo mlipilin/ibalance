@@ -30,11 +30,23 @@ TYPES.forEach(type => {
 
     SIZES.forEach(size => {
         components.push(
-            <Container key={size}>
-                <Checkbox size={size} type={type}>
-                    I agree with the rules
-                </Checkbox>
-            </Container>,
+            <div key={`${size}_1`}>
+                <Container>
+                    <Checkbox size={size} type={type} />
+                </Container>
+            </div>,
+        );
+    });
+
+    SIZES.forEach(size => {
+        components.push(
+            <div key={`${size}_2`}>
+                <Container>
+                    <Checkbox size={size} type={type}>
+                        {type} checkbox with size {size.toUpperCase()}
+                    </Checkbox>
+                </Container>
+            </div>,
         );
     });
 
