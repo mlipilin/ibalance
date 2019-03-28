@@ -113,6 +113,7 @@ class Input extends Component {
 
 Input.propTypes = {
     disabled: PropTypes.bool,
+    error: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     mask: PropTypes.string,
     size: PropTypes.oneOf(['s', 'm', 'l']),
     success: PropTypes.bool,
@@ -126,6 +127,7 @@ Input.propTypes = {
 
 Input.defaultProps = {
     disabled: false,
+    error: '',
     mask: '',
     size: 'm',
     success: false,
