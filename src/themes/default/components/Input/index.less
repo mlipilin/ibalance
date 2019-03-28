@@ -1,6 +1,51 @@
 .ib-input {
+    position: relative;
 }
 
+// Label
+.ib-input__label {
+    display: block;
+}
+
+// Label text
+.ib-input__label-text {
+    opacity: 0.5;
+    position: absolute;
+    transition: font-size 0.2s ease-in-out, top 0.2s ease-in-out;
+
+    // Sizes
+    &_size_s {
+        font-size: @font-size-s;
+        left: 11px;
+        top: 12px;
+    }
+    &_size_s&_place-top {
+        font-size: @font-size-xs;
+        top: 6px;
+    }
+
+    &_size_m {
+        font-size: @font-size-m;
+        left: 15px;
+        top: 16px;
+    }
+    &_size_m&_place-top {
+        font-size: @font-size-s;
+        top: 8px;
+    }
+
+    &_size_l {
+        font-size: @font-size-l;
+        left: 19px;
+        top: 20px;
+    }
+    &_size_l&_place-top {
+        font-size: @font-size-m;
+        top: 10px;
+    }
+}
+
+// Input
 .ib-input__input {
     border: 1px solid @color-default;
     border-radius: 4px;
@@ -37,13 +82,24 @@
         font-size: @font-size-s;
         padding: 8px 12px;
     }
+    &_size_s&_with-label {
+        padding: 18px 10px 6px;
+    }
+
     &_size_m {
         font-size: @font-size-m;
         padding: 12px 16px;
     }
+    &_size_m&_with-label {
+        padding: 26px 14px 6px;
+    }
+
     &_size_l {
         font-size: @font-size-l;
         padding: 16px 20px;
+    }
+    &_size_l&_with-label {
+        padding: 30px 18px 10px;
     }
 
     // Success
@@ -52,6 +108,7 @@
     }
 }
 
+// Error
 .ib-input__error {
     @font-size-coeff: 0.75;
 
