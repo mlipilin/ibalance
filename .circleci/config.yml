@@ -1,30 +1,33 @@
 version: 2
 jobs:
-    test:
-        docker:
-            - image: circleci/node:8
-        steps:
-            - checkout
-            - run: npm install
-            - run: npm t
+  test:
+    docker:
+      - image: circleci/node:8
+    steps:
+      - checkout
+      - run: npm install
+      - run: npm t
 
-    deploy:
-        docker:
-            - image: circleci/node:8
-        steps:
-            - checkout
-            - run: npm install
-            - run: npm run build
-            - run: npm run deploy-storybook
+  deploy:
+    docker:
+      - image: circleci/node:8
+    steps:
+      - checkout
+      - run: git checkout gh-pages
+      - run: npm install
+      - run: npm run build-storybook
+      - run: git add .
+      - run: git commit -m "deploy storybook"
+      - run: git push --force
 
 workflows:
-    version: 2
-    test-deploy:
-        jobs:
+  version: 2
+  test-deploy:
+    jobs:
+      - test
+      - deploy:
+          requires:
             - test
-            - deploy:
-                  requires:
-                      - test
-                  filters:
-                      branches:
-                          only: master
+          filters:
+            branches:
+              only: master
