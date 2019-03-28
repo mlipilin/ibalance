@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem-classnames-maker';
+import InputMask from 'react-input-mask';
 
 import { useTheme } from '../../theme-provider';
 
@@ -38,6 +39,7 @@ class Input extends Component {
         const {
             error,
             label,
+            mask,
             placeholder,
             size,
             success,
@@ -78,6 +80,19 @@ class Input extends Component {
 
         const inputPlaceholder = label ? '' : placeholder;
 
+        let inputProps = {
+            ...otherProps,
+            className: inputClass,
+            placeholder: inputPlaceholder,
+            value: formatValue(value),
+            onBlur: this.handleBlur,
+            onChange: this.handleChange,
+            onFocus: this.handleFocus,
+        };
+        if (mask) {
+            inputProps = { ...inputProps, mask, maskChar: null };
+        }
+
         return (
             <div className={componentClass}>
                 <label className={labelClass}>
@@ -85,15 +100,8 @@ class Input extends Component {
                     {!!label && <span className={labelTextClass}>{label}</span>}
 
                     {/* Input */}
-                    <input
-                        {...otherProps}
-                        className={inputClass}
-                        placeholder={inputPlaceholder}
-                        value={formatValue(value)}
-                        onBlur={this.handleBlur}
-                        onChange={this.handleChange}
-                        onFocus={this.handleFocus}
-                    />
+                    {!mask && <input {...inputProps} />}
+                    {!!mask && <InputMask {...inputProps} />}
                 </label>
 
                 {/* Error */}
@@ -105,6 +113,7 @@ class Input extends Component {
 
 Input.propTypes = {
     disabled: PropTypes.bool,
+    mask: PropTypes.string,
     size: PropTypes.oneOf(['s', 'm', 'l']),
     success: PropTypes.bool,
     value: PropTypes.string,
@@ -117,6 +126,7 @@ Input.propTypes = {
 
 Input.defaultProps = {
     disabled: false,
+    mask: '',
     size: 'm',
     success: false,
     value: '',

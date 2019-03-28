@@ -90,5 +90,9 @@ storiesOf('Input')
             <Container>
                 <Input label="Only numbers" formatValue={value => value.replace(/\D/g, '')} />
             </Container>
+            <br />
+            <Container>
+                <Input label="Mask (phone)" mask="+7\ (999) 999-99-99" />
+            </Container>
         </React.Fragment>
     ));
