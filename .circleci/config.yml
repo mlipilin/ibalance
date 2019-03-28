@@ -16,6 +16,8 @@ jobs:
       - run: git checkout gh-pages
       - run: npm install
       - run: npm run build-storybook
+      - run: git config --global user.email "lipilin.m@gmail.com"
+      - run: git config --global user.name "Mikhail Lipilin"
       - run: git add .
       - run: git commit -m "deploy storybook"
       - run: git push --force
