@@ -24,7 +24,8 @@ class Input extends Component {
     };
 
     handleChange = e => {
-        this.props.onChange(e.target.value, this.props);
+        const { onChange, parseValue } = this.props;
+        onChange(parseValue(e.target.value), this.props);
     };
 
     handleFocus = e => {
@@ -42,6 +43,8 @@ class Input extends Component {
             success,
             value,
             applyClasses,
+            formatValue,
+            parseValue,
             ...otherProps
         } = this.props;
 
@@ -86,7 +89,7 @@ class Input extends Component {
                         {...otherProps}
                         className={inputClass}
                         placeholder={inputPlaceholder}
-                        value={value}
+                        value={formatValue(value)}
                         onBlur={this.handleBlur}
                         onChange={this.handleChange}
                         onFocus={this.handleFocus}
@@ -105,9 +108,11 @@ Input.propTypes = {
     size: PropTypes.oneOf(['s', 'm', 'l']),
     success: PropTypes.bool,
     value: PropTypes.string,
+    formatValue: PropTypes.func,
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
+    parseValue: PropTypes.func,
 };
 
 Input.defaultProps = {
@@ -115,9 +120,11 @@ Input.defaultProps = {
     size: 'm',
     success: false,
     value: '',
+    formatValue: _ => _,
     onBlur: _ => _,
     onChange: _ => _,
     onFocus: _ => _,
+    parseValue: _ => _,
 };
 
 export default useTheme(Input);
