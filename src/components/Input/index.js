@@ -7,8 +7,20 @@ import { useTheme } from '../../theme-provider';
 const cx = bem('ib-input');
 
 class Input extends Component {
+    state = { hasFocus: false };
+
+    blur = () => {
+        this.setState({ hasFocus: false });
+    };
+
+    focus = () => {
+        this.setState({ hasFocus: true });
+    };
+
     handleBlur = e => {
-        this.props.onBlur(this.props);
+        this.setState({ hasFocus: false }, () => {
+            this.props.onBlur(this.props);
+        });
     };
 
     handleChange = e => {
@@ -16,40 +28,73 @@ class Input extends Component {
     };
 
     handleFocus = e => {
-        this.props.onFocus(this.props);
+        this.setState({ hasFocus: true }, () => {
+            this.props.onFocus(this.props);
+        });
     };
 
     render() {
-        const { error, size, success, value, applyClasses, ...otherProps } = this.props;
+        const {
+            error,
+            label,
+            placeholder,
+            size,
+            success,
+            value,
+            applyClasses,
+            ...otherProps
+        } = this.props;
 
-        const inputClass = applyClasses(cx('', {}));
+        const { hasFocus } = this.state;
 
-        const inputInputClass = applyClasses(
+        const componentClass = applyClasses(cx('', {}));
+
+        const labelClass = applyClasses(cx('label', {}));
+
+        const labelTextClass = applyClasses(
+            cx('label-text', {
+                size,
+                'place-top': hasFocus || !!value,
+            }),
+        );
+
+        const inputClass = applyClasses(
             cx('input', {
                 error: !!error,
                 size,
                 success,
+                'with-label': !!label,
             }),
         );
 
-        const inputErrorClass = applyClasses(
+        const errorClass = applyClasses(
             cx('error', {
                 size,
             }),
         );
 
-        return (
-            <div className={inputClass}>
-                <input
-                    {...otherProps}
-                    className={inputInputClass}
-                    value={value}
-                    onBlur={this.handleBlur}
-                    onChange={this.handleChange}
-                    onFocus={this.handleFocus}
-                />
+        const inputPlaceholder = label ? '' : placeholder;
 
-                {!!error && <div className={inputErrorClass}>{error}</div>}
+        return (
+            <div className={componentClass}>
+                <label className={labelClass}>
+                    {/* Label */}
+                    {!!label && <span className={labelTextClass}>{label}</span>}
+
+                    {/* Input */}
+                    <input
+                        {...otherProps}
+                        className={inputClass}
+                        placeholder={inputPlaceholder}
+                        value={value}
+                        onBlur={this.handleBlur}
+                        onChange={this.handleChange}
+                        onFocus={this.handleFocus}
+                    />
+                </label>
+
+                {/* Error */}
+                {!!error && <div className={errorClass}>{error}</div>}
             </div>
         );
     }

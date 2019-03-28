@@ -22,7 +22,7 @@ class Button extends Component {
             applyClasses,
         } = this.props;
 
-        const buttonClass = applyClasses(
+        const componentClass = applyClasses(
             cx('', {
                 block,
                 disabled,
@@ -47,7 +47,7 @@ class Button extends Component {
         }
 
         return (
-            <button className={buttonClass} {...buttonProps}>
+            <button className={componentClass} {...buttonProps}>
                 <div className={containerClass}>
                     {/* Icon left */}
                     {!!iconLeft && <div className={iconLeftClass}>{iconLeft}</div>}

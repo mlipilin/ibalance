@@ -21,35 +21,69 @@ class Container extends React.Component {
     }
 }
 
-storiesOf('Input').add('Default', () => (
-    <div className="Story__Input-Container">
-        {SIZES.map(size => (
-            <div key={size}>
-                <Container>
-                    <Input
-                        size={size}
-                        placeholder={`Input ${size}`}
-                        onBlur={props => {
-                            console.log(`Input ${size} blur`, props);
-                        }}
-                        onChange={(value, props) => {
-                            console.log(`Input ${size} change: ${value}`, props);
-                        }}
-                        onFocus={props => {
-                            console.log(`Input ${size} focus`, props);
-                        }}
-                    />
-                </Container>
-                <Container>
-                    <Input size={size} placeholder={`Input ${size}`} error="Some input error" />
-                </Container>
-                <Container>
-                    <Input size={size} placeholder={`Input ${size}`} success />
-                </Container>
-                <Container>
-                    <Input size={size} placeholder={`Input ${size}`} disabled />
-                </Container>
-            </div>
-        ))}
-    </div>
-));
+storiesOf('Input')
+    .add('Default', () => (
+        <div className="Story__Input-Container">
+            {SIZES.map(size => (
+                <div key={size}>
+                    <Container>
+                        <Input
+                            size={size}
+                            placeholder={`Input ${size}`}
+                            onBlur={props => {
+                                console.log(`Input ${size} blur`, props);
+                            }}
+                            onChange={(value, props) => {
+                                console.log(`Input ${size} change: ${value}`, props);
+                            }}
+                            onFocus={props => {
+                                console.log(`Input ${size} focus`, props);
+                            }}
+                        />
+                    </Container>
+                    <Container>
+                        <Input size={size} placeholder={`Input ${size}`} error="Some input error" />
+                    </Container>
+                    <Container>
+                        <Input size={size} placeholder={`Input ${size}`} success />
+                    </Container>
+                    <Container>
+                        <Input size={size} placeholder={`Input ${size}`} disabled />
+                    </Container>
+                </div>
+            ))}
+        </div>
+    ))
+    .add('Label', () => (
+        <div className="Story__Input-Container">
+            {SIZES.map(size => (
+                <div key={size}>
+                    <Container>
+                        <Input
+                            size={size}
+                            label={`Input ${size}`}
+                            placeholder="sdcdc"
+                            onBlur={props => {
+                                console.log(`Input ${size} blur`, props);
+                            }}
+                            onChange={(value, props) => {
+                                console.log(`Input ${size} change: ${value}`, props);
+                            }}
+                            onFocus={props => {
+                                console.log(`Input ${size} focus`, props);
+                            }}
+                        />
+                    </Container>
+                    <Container>
+                        <Input size={size} label={`Input ${size}`} error="Some input error" />
+                    </Container>
+                    <Container>
+                        <Input size={size} label={`Input ${size}`} success />
+                    </Container>
+                    <Container>
+                        <Input size={size} label={`Input ${size}`} disabled />
+                    </Container>
+                </div>
+            ))}
+        </div>
+    ));

@@ -14,12 +14,12 @@ class Checkbox extends Component {
     render() {
         const { checked, children, disabled, size, type, applyClasses, ...otherProps } = this.props;
 
-        const checkboxClass = applyClasses(cx(''));
-        const checkboxLabelClass = applyClasses(cx('label', { checked, disabled, size, type }));
+        const componentClass = applyClasses(cx(''));
+        const labelClass = applyClasses(cx('label', { checked, disabled, size, type }));
 
         return (
-            <div className={checkboxClass}>
-                <label className={checkboxLabelClass}>
+            <div className={componentClass}>
+                <label className={labelClass}>
                     <input
                         {...otherProps}
                         checked={checked}
