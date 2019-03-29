@@ -11,6 +11,8 @@ class Icon extends Component {
     render() {
         const { color, name, size, applyClasses, ...otherProps } = this.props;
 
+        let componentClassProps = {};
+
         if (!name) return null;
         if (!icons[name]) return null;
 
@@ -18,15 +20,23 @@ class Icon extends Component {
         if (color) {
             svgProps.color = color;
         }
+
         if (size) {
-            svgProps.height = size;
-            svgProps.width = size;
+            if (typeof size === 'number') {
+                svgProps.height = size;
+                svgProps.width = size;
+            } else {
+                componentClassProps = {
+                    ...componentClassProps,
+                    size,
+                };
+            }
         }
 
         return (
             <span
                 {...otherProps}
-                className={applyClasses(cx(''))}
+                className={applyClasses(cx('', componentClassProps))}
                 dangerouslySetInnerHTML={{
                     __html: icons[name].toSvg(svgProps),
                 }}
@@ -136,6 +146,7 @@ Icon.propTypes = {
         'facebook',
         'fast-forward',
         'feather',
+        'figma',
         'file-minus',
         'file-plus',
         'file-text',
@@ -305,6 +316,7 @@ Icon.propTypes = {
         'wifi',
         'wind',
         'x-circle',
+        'x-octagon',
         'x-square',
         'x',
         'youtube',
@@ -313,13 +325,12 @@ Icon.propTypes = {
         'zoom-in',
         'zoom-out',
     ]),
-    size: PropTypes.number,
-    applyClasses: PropTypes.func,
+    // NUMBER or one of ['xs', 's', 'm', 'l', 'xl', 'xxl']
+    size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };
 
 Icon.defaultProps = {
     size: 24,
-    applyClasses: _ => _,
 };
 
 export default useTheme(Icon);

@@ -1,5 +1,38 @@
+@import '../../mixins.less';
+
 .ib-icon {
     display: inline-block;
+
+    &_size_xs {
+        svg {
+            .size(11px);
+        }
+    }
+    &_size_s {
+        svg {
+            .size(14px);
+        }
+    }
+    &_size_m {
+        svg {
+            .size(16px);
+        }
+    }
+    &_size_l {
+        svg {
+            .size(20px);
+        }
+    }
+    &_size_xl {
+        svg {
+            .size(24px);
+        }
+    }
+    &_size_xxl {
+        svg {
+            .size(28px);
+        }
+    }
 
     svg {
         display: block;

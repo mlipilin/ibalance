@@ -108,11 +108,23 @@
         .ib-button__container {
             padding: 4px 8px;
         }
+        .ib-button__icon-left {
+            margin-left: -2px;
+        }
+        .ib-button__icon-right {
+            margin-right: -2px;
+        }
     }
     &_size_s {
         font-size: @font-size-s;
         .ib-button__container {
             padding: 8px 12px;
+        }
+        .ib-button__icon-left {
+            margin-left: -3px;
+        }
+        .ib-button__icon-right {
+            margin-right: -3px;
         }
     }
     &_size_m {
@@ -120,11 +132,23 @@
         .ib-button__container {
             padding: 12px 16px;
         }
+        .ib-button__icon-left {
+            margin-left: -4px;
+        }
+        .ib-button__icon-right {
+            margin-right: -4px;
+        }
     }
     &_size_l {
         font-size: @font-size-l;
         .ib-button__container {
             padding: 16px 24px;
+        }
+        .ib-button__icon-left {
+            margin-left: -5px;
+        }
+        .ib-button__icon-right {
+            margin-right: -5px;
         }
     }
     &_size_xl {
@@ -132,11 +156,23 @@
         .ib-button__container {
             padding: 20px 28px;
         }
+        .ib-button__icon-left {
+            margin-left: -6px;
+        }
+        .ib-button__icon-right {
+            margin-right: -6px;
+        }
     }
     &_size_xxl {
         font-size: @font-size-xxl;
         .ib-button__container {
             padding: 24px 32px;
+        }
+        .ib-button__icon-left {
+            margin-left: -7px;
+        }
+        .ib-button__icon-right {
+            margin-right: -7px;
         }
     }
 
@@ -177,6 +213,10 @@
 
 .ib-button__content {
     display: inline;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .ib-button__icon-left,

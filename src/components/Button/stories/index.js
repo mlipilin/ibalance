@@ -35,16 +35,26 @@ TYPES.forEach(type => {
     SIZES.forEach(size => {
         components.push(
             <div key={`${type}_${size}_icons`}>
-                <Button iconLeft={<Icon name="chevron-left" />} size={size} type={type}>
+                <Button iconLeft={<Icon name="arrow-left" size={size} />} size={size} type={type}>
                     {type} {size}
                 </Button>
-                <Button iconRight={<Icon name="chevron-right" />} size={size} type={type}>
+                <Button iconRight={<Icon name="arrow-right" size={size} />} size={size} type={type}>
                     {type} {size}
                 </Button>
-                <Button iconLeft={<Icon name="chevron-left" />} size={size} type={type} disabled>
+                <Button
+                    iconLeft={<Icon name="arrow-left" size={size} />}
+                    size={size}
+                    type={type}
+                    disabled
+                >
                     {type} {size}
                 </Button>
-                <Button iconLeft={<Icon name="chevron-left" />} size={size} type={type} processing>
+                <Button
+                    iconLeft={<Icon name="arrow-left" size={size} />}
+                    size={size}
+                    type={type}
+                    processing
+                >
                     {type} {size}
                 </Button>
             </div>,
@@ -54,10 +64,20 @@ TYPES.forEach(type => {
     SIZES.forEach(size => {
         components.push(
             <div key={`${type}_${size}_icons_block`}>
-                <Button block iconLeft={<Icon name="chevron-left" />} size={size} type={type}>
+                <Button
+                    block
+                    iconLeft={<Icon name="arrow-left" size={size} />}
+                    size={size}
+                    type={type}
+                >
                     {type} {size}
                 </Button>
-                <Button block iconRight={<Icon name="chevron-right" />} size={size} type={type}>
+                <Button
+                    block
+                    iconRight={<Icon name="arrow-right" size={size} />}
+                    size={size}
+                    type={type}
+                >
                     {type} {size}
                 </Button>
             </div>,
