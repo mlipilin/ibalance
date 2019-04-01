@@ -8,6 +8,7 @@
     "scripts": {
         "build": "rollup -c",
         "build-storybook": "build-storybook -c .storybook -o ./",
+        "deploy-storybook": "storybook-to-ghpages",
         "storybook": "start-storybook -p 9001 -c .storybook",
         "test": "jest",
         "test-watch": "jest --watch"
@@ -30,6 +31,7 @@
         "@storybook/addon-notes": "^5.0.6",
         "@storybook/addon-options": "^5.0.6",
         "@storybook/react": "^5.0.6",
+        "@storybook/storybook-deployer": "^2.8.1",
         "babel-jest": "^24.1.0",
         "babel-loader": "^8.0.5",
         "commitizen": "^3.0.7",
