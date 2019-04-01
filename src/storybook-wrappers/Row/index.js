@@ -4,7 +4,12 @@ import './styles.css';
 
 class StorybookRow extends Component {
     render() {
-        return <div className="storybook-row">{this.props.children}</div>;
+        const { children, ...otherProps } = this.props;
+        return (
+            <div className="storybook-row" {...otherProps}>
+                {children}
+            </div>
+        );
     }
 }
 

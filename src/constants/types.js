@@ -1,4 +1,5 @@
 export const TYPES = {
+    BLACK: 'black',
     DANGER: 'danger',
     DEFAULT: 'default',
     INFO: 'info',
@@ -6,4 +7,5 @@ export const TYPES = {
     SECONDARY: 'secondary',
     SUCCESS: 'success',
     WARNING: 'warning',
+    WHITE: 'white',
 };
