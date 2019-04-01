@@ -4,6 +4,8 @@ import { storiesOf } from '@storybook/react';
 
 import Checkbox from '../index';
 
+import notes from '../readme.md';
+
 import './styles.css';
 
 const SIZES = ['s', 'm', 'l'];
@@ -62,5 +64,7 @@ TYPES.forEach(type => {
         );
     });
 
-    stories.add(type, () => <div className="Story__Checkbox-Container">{components}</div>);
+    stories.add(type, () => <div className="Story__Checkbox-Container">{components}</div>, {
+        notes,
+    });
 });

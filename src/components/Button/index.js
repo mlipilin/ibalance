@@ -86,7 +86,6 @@ Button.propTypes = {
         'info',
         'warning',
     ]),
-    applyClasses: PropTypes.func,
 };
 
 Button.defaultProps = {
@@ -95,7 +94,6 @@ Button.defaultProps = {
     processing: false,
     size: 'm',
     type: 'default',
-    applyClasses: _ => _,
 };
 
 export default useTheme(Button);

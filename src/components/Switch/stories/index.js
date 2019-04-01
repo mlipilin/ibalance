@@ -4,6 +4,8 @@ import { storiesOf } from '@storybook/react';
 
 import Switch from '../index';
 
+import notes from '../readme.md';
+
 import './styles.css';
 
 const SIZES = ['s', 'm', 'l'];
@@ -48,5 +50,5 @@ TYPES.forEach(type => {
         );
     });
 
-    stories.add(type, () => <div className="Story__Switch-Container">{components}</div>);
+    stories.add(type, () => <div className="Story__Switch-Container">{components}</div>, { notes });
 });
