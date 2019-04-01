@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import bem from 'bem-classnames-maker';
 import InputMask from 'react-input-mask';
 
+// Constants
+import { SIZES } from '../../constants/sizes';
+
 import { useTheme } from '../../theme-provider';
 
 const cx = bem('ib-input');
@@ -115,7 +118,7 @@ Input.propTypes = {
     disabled: PropTypes.bool,
     error: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     mask: PropTypes.string,
-    size: PropTypes.oneOf(['s', 'm', 'l']),
+    size: PropTypes.oneOf([SIZES.S, SIZES.M, SIZES.L]),
     success: PropTypes.bool,
     value: PropTypes.string,
     formatValue: PropTypes.func,
@@ -129,7 +132,7 @@ Input.defaultProps = {
     disabled: false,
     error: '',
     mask: '',
-    size: 'm',
+    size: SIZES.M,
     success: false,
     value: '',
     formatValue: _ => _,
