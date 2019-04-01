@@ -8,7 +8,6 @@
     "scripts": {
         "build": "rollup -c",
         "build-storybook": "build-storybook -c .storybook -o ./",
-        "deploy-storybook": "storybook-to-ghpages --out=.out",
         "storybook": "start-storybook -p 9001 -c .storybook",
         "test": "jest",
         "test-watch": "jest --watch"
