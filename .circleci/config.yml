@@ -15,7 +15,7 @@ jobs:
       - checkout
       - run: git config --global user.email "lipilin.m@gmail.com"
       - run: git config --global user.name "Mikhail Lipilin"
-      - run: npm deploy-storybook
+      - run: npm run deploy-storybook
 
 workflows:
   version: 2
