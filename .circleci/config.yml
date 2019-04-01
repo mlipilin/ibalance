@@ -20,7 +20,7 @@ jobs:
       - run: git config --global user.name "Mikhail Lipilin"
       - run: git add .
       - run: git commit -m "deploy storybook"
-      - run: git push --force
+      - run: git push --set-upstream origin gh-pages --force
 
 workflows:
   version: 2
