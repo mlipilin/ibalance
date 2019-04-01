@@ -5,6 +5,10 @@ import bem from 'bem-classnames-maker';
 // Components
 import Spin from '../Spin';
 
+// Constants
+import { SIZES } from '../../constants/sizes';
+import { TYPES } from '../../constants/types';
+
 import { useTheme } from '../../theme-provider';
 
 const cx = bem('ib-button');
@@ -76,15 +80,15 @@ Button.propTypes = {
     iconLeft: PropTypes.object,
     iconRight: PropTypes.object,
     processing: PropTypes.bool,
-    size: PropTypes.oneOf(['xs', 's', 'm', 'l', 'xl', 'xxl']),
+    size: PropTypes.oneOf([SIZES.XS, SIZES.S, SIZES.M, SIZES.L, SIZES.XL, SIZES.XXL]),
     type: PropTypes.oneOf([
-        'default',
-        'primary',
-        'secondary',
-        'danger',
-        'success',
-        'info',
-        'warning',
+        TYPES.DEFAULT,
+        TYPES.PRIMARY,
+        TYPES.SECONDARY,
+        TYPES.DANGER,
+        TYPES.SUCCESS,
+        TYPES.INFO,
+        TYPES.WARNING,
     ]),
 };
 
@@ -92,8 +96,8 @@ Button.defaultProps = {
     block: false,
     disabled: false,
     processing: false,
-    size: 'm',
-    type: 'default',
+    size: SIZES.M,
+    type: TYPES.DEFAULT,
 };
 
 export default useTheme(Button);

@@ -4,19 +4,31 @@ import React from 'react';
 import Button from '../index';
 import Icon from '../../Icon';
 
+// Constants
+import { SIZES } from '../../../constants/sizes';
+import { TYPES } from '../../../constants/types';
+
 // Wrappers
 import Cell from '../../../storybook-wrappers/Cell';
 import Row from '../../../storybook-wrappers/Row';
 
-const TYPES = ['default', 'primary', 'secondary', 'danger', 'success', 'info', 'warning'];
-const SIZES = ['xs', 's', 'm', 'l', 'xl', 'xxl'];
+const types = [
+    TYPES.DEFAULT,
+    TYPES.PRIMARY,
+    TYPES.SECONDARY,
+    TYPES.DANGER,
+    TYPES.SUCCESS,
+    TYPES.INFO,
+    TYPES.WARNING,
+];
+const sizes = [SIZES.XS, SIZES.S, SIZES.M, SIZES.L, SIZES.XL, SIZES.XXL];
 
 let stories = {};
 
-TYPES.forEach(type => {
+types.forEach(type => {
     let typeStories = [];
 
-    SIZES.forEach(size => {
+    sizes.forEach(size => {
         const key = `${type}_${size}`;
         const component = (
             <Row key={key}>
@@ -40,7 +52,7 @@ TYPES.forEach(type => {
         typeStories.push({ key, component });
     });
 
-    SIZES.forEach(size => {
+    sizes.forEach(size => {
         const key = `${type}_${size}_icons`;
         const component = (
             <Row key={key}>
@@ -87,7 +99,7 @@ TYPES.forEach(type => {
         typeStories.push({ key, component });
     });
 
-    SIZES.forEach(size => {
+    sizes.forEach(size => {
         const key = `${type}_${size}_icons_block`;
         const component = (
             <Row key={key}>
