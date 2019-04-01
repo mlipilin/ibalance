@@ -26,13 +26,11 @@ Spin.propTypes = {
         'black',
         'white',
     ]),
-    applyClasses: PropTypes.func,
 };
 
 Spin.defaultProps = {
     type: 'default',
     size: 'm',
-    applyClasses: _ => _,
 };
 
 export default useTheme(Spin);

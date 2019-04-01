@@ -6,6 +6,8 @@ import { storiesOf } from '@storybook/react';
 import Button from '../index';
 import Icon from '../../Icon';
 
+import notes from '../readme.md';
+
 import './styles.css';
 
 const TYPES = ['default', 'primary', 'secondary', 'danger', 'success', 'info', 'warning'];
@@ -84,5 +86,5 @@ TYPES.forEach(type => {
         );
     });
 
-    stories.add(type, () => <div className="Story__Button-Container">{components}</div>);
+    stories.add(type, () => <div className="Story__Button-Container">{components}</div>, { notes });
 });

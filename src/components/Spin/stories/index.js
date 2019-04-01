@@ -4,6 +4,8 @@ import { storiesOf } from '@storybook/react';
 
 import Spin from '../index';
 
+import notes from '../readme.md';
+
 import './styles.css';
 
 const TYPES = [
@@ -37,5 +39,5 @@ TYPES.forEach(type => {
         );
     });
 
-    stories.add(type, () => <div className="Story__Spin-Container">{components}</div>);
+    stories.add(type, () => <div className="Story__Spin-Container">{components}</div>, { notes });
 });
