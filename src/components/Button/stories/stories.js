@@ -102,8 +102,8 @@ types.forEach(type => {
     sizes.forEach(size => {
         const key = `${type}_${size}_icons_block`;
         const component = (
-            <Row key={key}>
-                <Cell>
+            <div key={key}>
+                <Row>
                     <Button
                         block
                         iconLeft={<Icon name="arrow-left" size={size} />}
@@ -111,9 +111,9 @@ types.forEach(type => {
                         type={type}
                     >
                         {type} {size}
-                    </Button>{' '}
-                </Cell>
-                <Cell>
+                    </Button>
+                </Row>
+                <Row>
                     <Button
                         block
                         iconRight={<Icon name="arrow-right" size={size} />}
@@ -122,8 +122,8 @@ types.forEach(type => {
                     >
                         {type} {size}
                     </Button>{' '}
-                </Cell>
-            </Row>
+                </Row>
+            </div>
         );
         typeStories.push({ key, component });
     });
