@@ -84,6 +84,13 @@ Input with label (NO placeholder):
 
 ```less
 .ib-input {
+    // Size
+    &_size_s {
+    }
+    &_size_m {
+    }
+    &_size_l {
+    }
 }
 
 // Label

@@ -55,7 +55,11 @@ class Input extends Component {
 
         const { hasFocus } = this.state;
 
-        const componentClass = applyClasses(cx('', {}));
+        const componentClass = applyClasses(
+            cx('', {
+                size,
+            }),
+        );
 
         const labelClass = applyClasses(cx('label', {}));
 
