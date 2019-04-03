@@ -79,3 +79,54 @@ Input with label (NO placeholder):
 `.ib-input__error_size_m`
 
 `.ib-input__error_size_l`
+
+## Initial LESS
+
+```less
+.ib-input {
+}
+
+// Label
+.ib-input__label {
+    &-text {
+        &_place_top {
+        }
+
+        // Size
+        &_size_s {
+        }
+        &_size_m {
+        }
+        &_size_l {
+        }
+    }
+}
+
+.ib-input__input {
+    &_error {
+    }
+
+    &_success {
+    }
+
+    // Size
+    &_size_s {
+    }
+    &_size_m {
+    }
+    &_size_l {
+    }
+}
+
+.ib-input__error {
+    // Size
+    &_size_s {
+    }
+
+    &_size_m {
+    }
+
+    &_size_l {
+    }
+}
+```
