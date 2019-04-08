@@ -1,5 +1,7 @@
 .ib-notification-wrapper {
     box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
     padding: 15px;
     position: fixed;
     width: 320px;
@@ -7,15 +9,18 @@
     // Position
     &_position_bottom-center {
         bottom: 0;
+        flex-flow: column-reverse;
         left: 50%;
         margin-left: -160px;
     }
     &_position_bottom-left {
         bottom: 0;
+        flex-flow: column-reverse;
         left: 0;
     }
     &_position_bottom-right {
         bottom: 0;
+        flex-flow: column-reverse;
         right: 0;
     }
     &_position_top-center {

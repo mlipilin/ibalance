@@ -10,7 +10,10 @@ import { useTheme } from '../../theme-provider';
 
 const cx = bem('ib-notification');
 
-const CLOSING_TIMEOUT = 300;
+const CLOSING_DELAY = 300;
+
+let closeAfterTimeout = null;
+let startClosingTimeout = null;
 
 class Notification extends Component {
     state = { closing: false };
@@ -19,9 +22,19 @@ class Notification extends Component {
         const { closeAfter } = this.props;
 
         if (closeAfter > 0) {
-            setTimeout(() => {
+            closeAfterTimeout = setTimeout(() => {
                 this.startClosing();
             }, closeAfter * 1000);
+        }
+    }
+
+    componentWillUnmount() {
+        if (closeAfterTimeout) {
+            console.log('clear timeout');
+            clearTimeout(closeAfterTimeout);
+        }
+        if (startClosingTimeout) {
+            clearTimeout(startClosingTimeout);
         }
     }
 
@@ -31,12 +44,16 @@ class Notification extends Component {
     };
 
     startClosing = () => {
+        if (!this.block) {
+            return;
+        }
+
         const blockHeight = this.block.offsetHeight;
         this.block.style.marginBottom = `-${blockHeight}px`;
         this.setState({ closing: true }, () => {
-            setTimeout(() => {
+            startClosingTimeout = setTimeout(() => {
                 this.props.onClose();
-            }, CLOSING_TIMEOUT);
+            }, CLOSING_DELAY);
         });
     };
 
