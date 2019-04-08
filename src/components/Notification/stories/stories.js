@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Components
-import { Notification, Wrapper } from '../index';
+import { Notification } from '../index';
 
 // Constants
 import { SIZES } from '../../../constants/sizes';
