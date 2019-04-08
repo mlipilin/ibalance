@@ -40,7 +40,7 @@ Input with label (NO placeholder):
 
 #### Booleans
 
-`.ib-input__label-text_place_top`
+`.ib-input__label-text_place-top`
 
 #### By size
 
@@ -59,6 +59,8 @@ Input with label (NO placeholder):
 `.ib-input__input_error`
 
 `.ib-input__input_success`
+
+`.ib-input__input_with-label`
 
 #### By size
 
@@ -93,19 +95,19 @@ Input with label (NO placeholder):
     }
 }
 
-// Label
 .ib-input__label {
-    &-text {
-        &_place_top {
-        }
+}
 
-        // Size
-        &_size_s {
-        }
-        &_size_m {
-        }
-        &_size_l {
-        }
+.ib-input__label-text {
+    &_place-top {
+    }
+
+    // Size
+    &_size_s {
+    }
+    &_size_m {
+    }
+    &_size_l {
     }
 }
 
@@ -114,6 +116,9 @@ Input with label (NO placeholder):
     }
 
     &_success {
+    }
+
+    &_with-label {
     }
 
     // Size
