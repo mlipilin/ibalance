@@ -28,13 +28,20 @@ export const useTheme = Component => ({ className, styles, ...otherProps }) => (
     <MyContext.Consumer>
         {value => {
             const theme = value || {};
-            return (
-                <Component
-                    {...otherProps}
-                    className={className}
-                    applyClasses={applyClasses(theme, styles, className)}
-                />
-            );
+
+            let props = {
+                ...otherProps,
+                applyClasses: applyClasses(theme, styles, className),
+            };
+
+            if (className) {
+                props = {
+                    ...props,
+                    className,
+                };
+            }
+
+            return <Component {...props} />;
         }}
     </MyContext.Consumer>
 );

@@ -1,0 +1,140 @@
+@import '../../mixins.less';
+
+.ib-notification {
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    position: relative;
+    transition: margin 0.3s ease-in-out, opacity 0.15s ease-in-out;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    // Size
+    &_size_s {
+        padding: 8px 12px;
+    }
+    &_size_m {
+        padding: 12px 16px;
+    }
+    &_size_l {
+        padding: 16px 20px;
+    }
+
+    // Type
+    &_type_danger {
+        background-color: @color-danger;
+    }
+    &_type_info {
+        background-color: @color-info;
+    }
+    &_type_success {
+        background-color: @color-success;
+    }
+    &_type_warning {
+        background-color: @color-warning;
+    }
+
+    // Closing
+    &_closing {
+        opacity: 0;
+    }
+}
+
+// Title
+.ib-notification__title {
+    color: @color-white;
+
+    // Size
+    &_size_s {
+        font-size: @font-size-s;
+    }
+    &_size_m {
+        font-size: @font-size-m;
+    }
+    &_size_l {
+        font-size: @font-size-l;
+    }
+}
+
+// Description
+.ib-notification__description {
+    color: @color-white;
+
+    // Size
+    &_size_s {
+        font-size: @font-size-xs;
+        margin-top: 3px;
+    }
+    &_size_m {
+        font-size: @font-size-s;
+        margin-top: 5px;
+    }
+    &_size_l {
+        font-size: @font-size-m;
+        margin-top: 7px;
+    }
+}
+
+// Close
+.ib-notification__close {
+    cursor: pointer;
+    opacity: 0.8;
+    position: absolute;
+    transition: opacity 0.2s ease-in-out;
+
+    &:hover {
+        opacity: 1;
+    }
+
+    &:after,
+    &:before {
+        background-color: @color-white;
+        content: '';
+        height: 2px;
+        left: 0;
+        position: absolute;
+    }
+    &:after {
+        transform: rotate(45deg);
+    }
+    &:before {
+        transform: rotate(-45deg);
+    }
+
+    // Size
+    &_size_s {
+        .size(12px);
+        right: 8px;
+        top: 8px;
+
+        &:after,
+        &:before {
+            top: 5px;
+            width: 12px;
+        }
+    }
+    &_size_m {
+        .size(14px);
+        right: 12px;
+        top: 12px;
+
+        &:after,
+        &:before {
+            top: 6px;
+            width: 14px;
+        }
+    }
+    &_size_l {
+        .size(16px);
+        right: 16px;
+        top: 16px;
+
+        &:after,
+        &:before {
+            top: 7px;
+            width: 16px;
+        }
+    }
+}
