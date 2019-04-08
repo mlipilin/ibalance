@@ -3,42 +3,50 @@
 Basic notification
 
 ```javascript
-<Notification
-    description="Some long or short notification description"
-    size="m"
-    title="Warning!"
-    type="danger"
-/>
+<NotificationWrapper position="top-right">
+    <Notification
+        description="Some long or short notification description"
+        size="m"
+        title="Warning!"
+        type="danger"
+    />
+</NotificationWrapper>
 ```
 
 Notification withOUT description
 
 ```javascript
-<Notification title="Some title" type="info" />
+<NotificationWrapper>
+    <Notification title="Some title" type="info" />
+</NotificationWrapper>
 ```
 
 Notification withOUT closing button
 
 ```javascript
-<Notification
-    canClose={false}
-    description="Some long or short notification description"
-    size="s"
-    title="Data is successfully saved"
-    type="success"
-/>
+<NotificationWrapper>
+    <Notification
+        canClose={false}
+        description="Some long or short notification description"
+        size="s"
+        title="Data is successfully saved"
+        type="success"
+    />
+</NotificationWrapper>
 ```
 
 Notification with automatically closing (after 10 seconds)
 
 ```javascript
-<Notification
-    closeAfter={10}
-    description="Some long or short notification description"
-    size="m"
-    title="Warning!"
-    type="danger"
-/>
+<NotificationWrapper>
+    <Notification
+        closeAfter={10}
+        description="Some long or short notification description"
+        size="m"
+        title="Warning!"
+        type="danger"
+    />
+</NotificationWrapper>
 ```
 
 ## Possible CSS Selectors (Wrapper)

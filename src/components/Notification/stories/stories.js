@@ -6,7 +6,6 @@ import { Notification } from '../index';
 // Constants
 import { SIZES } from '../../../constants/sizes';
 import { TYPES } from '../../../constants/types';
-import { POSITION } from '../constants';
 
 const capitalize = s => `${s.slice(0, 1).toUpperCase()}${s.slice(1).toLowerCase()}`;
 
@@ -15,44 +14,42 @@ const types = [TYPES.DANGER, TYPES.INFO, TYPES.SUCCESS, TYPES.WARNING];
 
 let stories = {};
 
-Object.values(POSITION).forEach(position => {
-    let positionStories = [];
+Object.values(types).forEach(type => {
+    const typeStories = [];
 
     Object.values(sizes).forEach(size => {
-        Object.values(types).forEach(type => {
-            const key = `${position}_${size}_${type}`;
-            positionStories.push({
-                key,
-                component: (
-                    <Notification
-                        canClose
-                        description={`Long detail description`}
-                        key={key}
-                        size={size}
-                        title={capitalize(`${type}!`)}
-                        type={type}
-                    />
-                ),
-            });
-        });
-
-        // Can NOT close
-        const key = `${position}_${size}_cannot_close`;
-        positionStories.push({
+        const key = `${type}_${size}`;
+        typeStories.push({
             key,
             component: (
                 <Notification
-                    closeAfter={4}
+                    canClose
                     description={`Long detail description`}
                     key={key}
                     size={size}
-                    title={capitalize(`Can not close!`)}
+                    title={capitalize(`${type}!`)}
+                    type={type}
                 />
             ),
         });
     });
 
-    stories[position] = positionStories;
+    // Can NOT close
+    const key = `${type}_cannot_close`;
+    typeStories.push({
+        key,
+        component: (
+            <Notification
+                closeAfter={4}
+                description={`Long detail description`}
+                key={key}
+                title={capitalize(`Can not close!`)}
+                type={type}
+            />
+        ),
+    });
+
+    stories[type] = typeStories;
 });
 
 export default stories;
