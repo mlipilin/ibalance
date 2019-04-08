@@ -102,7 +102,7 @@ Notification.propTypes = {
 };
 
 Notification.defaultProps = {
-    canClose: false,
+    canClose: true,
     closeAfter: 0,
     description: '',
     size: SIZES.M,
