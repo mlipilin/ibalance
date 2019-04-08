@@ -105,6 +105,16 @@ Notification with automatically closing (after 10 seconds)
 
 `.ib-notification__title_size_l`
 
+#### By type
+
+`.ib-notification__title_type_danger`
+
+`.ib-notification__title_type_info`
+
+`.ib-notification__title_type_success`
+
+`.ib-notification__title_type_warning`
+
 ### Description
 
 `.ib-notification__description`
@@ -117,6 +127,16 @@ Notification with automatically closing (after 10 seconds)
 
 `.ib-notification__description_size_l`
 
+#### By type
+
+`.ib-notification__description_type_danger`
+
+`.ib-notification__description_type_info`
+
+`.ib-notification__description_type_success`
+
+`.ib-notification__description_type_warning`
+
 ### Close
 
 `.ib-notification__close`
@@ -128,6 +148,16 @@ Notification with automatically closing (after 10 seconds)
 `.ib-notification__close_size_m`
 
 `.ib-notification__close_size_l`
+
+#### By type
+
+`.ib-notification__close_type_danger`
+
+`.ib-notification__close_type_info`
+
+`.ib-notification__close_type_success`
+
+`.ib-notification__close_type_warning`
 
 ## Initial LESS
 
@@ -183,6 +213,16 @@ Notification with automatically closing (after 10 seconds)
     }
     &_size_l {
     }
+
+    // Type
+    &_type_danger {
+    }
+    &_type_info {
+    }
+    &_type_success {
+    }
+    &_type_warning {
+    }
 }
 
 // Description
@@ -194,6 +234,16 @@ Notification with automatically closing (after 10 seconds)
     }
     &_size_l {
     }
+
+    // Type
+    &_type_danger {
+    }
+    &_type_info {
+    }
+    &_type_success {
+    }
+    &_type_warning {
+    }
 }
 
 // Close
@@ -204,6 +254,16 @@ Notification with automatically closing (after 10 seconds)
     &_size_m {
     }
     &_size_l {
+    }
+
+    // Type
+    &_type_danger {
+    }
+    &_type_info {
+    }
+    &_type_success {
+    }
+    &_type_warning {
     }
 }
 ```

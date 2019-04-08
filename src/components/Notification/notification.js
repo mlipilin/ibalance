@@ -73,11 +73,11 @@ class Notification extends Component {
 
         const componentClass = applyClasses(cx('', { closing, size, type }));
 
-        const closeClass = applyClasses(cx('close', { size }));
+        const closeClass = applyClasses(cx('close', { size, type }));
 
-        const descriptionClass = applyClasses(cx('description', { size }));
+        const descriptionClass = applyClasses(cx('description', { size, type }));
 
-        const titleClass = applyClasses(cx('title', { size }));
+        const titleClass = applyClasses(cx('title', { size, type }));
 
         return (
             <div ref={el => (this.block = el)} className={componentClass} {...otherProps}>
