@@ -24,6 +24,7 @@ class Button extends Component {
             size,
             type,
             applyClasses,
+            ...otherProps
         } = this.props;
 
         const componentClass = applyClasses(
@@ -45,10 +46,7 @@ class Button extends Component {
         const iconRightClass = applyClasses(cx('icon-right', {}));
         const spinClass = applyClasses(cx('spin', {}));
 
-        let buttonProps = { disabled };
-        if (processing) {
-            buttonProps.processing = 'processing';
-        }
+        const buttonProps = { disabled, ...otherProps };
 
         return (
             <button className={componentClass} {...buttonProps}>
