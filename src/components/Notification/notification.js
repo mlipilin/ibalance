@@ -12,46 +12,48 @@ const cx = bem('ib-notification');
 
 const CLOSING_DELAY = 300;
 
-let closeAfterTimeout = null;
-let startClosingTimeout = null;
-
 class Notification extends Component {
+    closeAfterTimeout = null;
+    closingTimeout = null;
+
     state = { closing: false };
 
     componentDidMount() {
         const { closeAfter } = this.props;
 
         if (closeAfter > 0) {
-            closeAfterTimeout = setTimeout(() => {
+            this.closeAfterTimeout = setTimeout(() => {
                 this.startClosing();
             }, closeAfter * 1000);
         }
     }
 
     componentWillUnmount() {
-        if (closeAfterTimeout) {
-            console.log('clear timeout');
-            clearTimeout(closeAfterTimeout);
+        if (this.closeAfterTimeout) {
+            clearTimeout(this.closeAfterTimeout);
         }
-        if (startClosingTimeout) {
-            clearTimeout(startClosingTimeout);
+        if (this.closingTimeout) {
+            clearTimeout(this.closingTimeout);
         }
     }
 
     handleCloseClick = e => {
         e.preventDefault();
-        this.startClosing();
+
+        if (!this.state.closing) {
+            if (this.closeAfterTimeout) {
+                clearTimeout(this.closeAfterTimeout);
+            }
+
+            this.startClosing();
+        }
     };
 
     startClosing = () => {
-        if (!this.block) {
-            return;
-        }
-
         const blockHeight = this.block.offsetHeight;
         this.block.style.marginBottom = `-${blockHeight}px`;
         this.setState({ closing: true }, () => {
-            startClosingTimeout = setTimeout(() => {
+            this.closingTimeout = setTimeout(() => {
                 this.props.onClose();
             }, CLOSING_DELAY);
         });
