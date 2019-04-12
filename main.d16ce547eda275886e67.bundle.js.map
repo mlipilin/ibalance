@@ -1,0 +1,1 @@
+{"version":3,"file":"main.d16ce547eda275886e67.bundle.js","sources":["webpack:///./src/constants/sizes.js"],"sourcesContent":["export const SIZES = {\n    XS: 'xs',\n    S: 's',\n    M: 'm',\n    L: 'l',\n    XL: 'xl',\n    XXL: 'xxl',\n    XXXL: 'xxxl',\n};\n"],"mappings":"AAAA","sourceRoot":""}
