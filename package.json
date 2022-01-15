@@ -48,7 +48,7 @@
         "rollup-plugin-commonjs": "^9.2.0",
         "rollup-plugin-less": "^1.1.2",
         "rollup-plugin-node-resolve": "^4.0.0",
-        "shelljs": "^0.8.3"
+        "shelljs": "^0.8.5"
     },
     "dependencies": {
         "bem-classnames-maker": "^1.1.3",
